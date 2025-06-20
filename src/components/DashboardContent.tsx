@@ -6,6 +6,7 @@ import { DocumentsView } from './DocumentsView';
 import { SettingsView } from './SettingsView';
 import { SampleValidatorView } from './SampleValidatorView';
 import { Badge } from "@/components/ui/badge";
+import { ThemeToggle } from './ThemeToggle';
 
 interface DashboardContentProps {
   activeView: string;
@@ -40,22 +41,23 @@ export function DashboardContent({ activeView }: DashboardContentProps) {
   const currentView = viewTitles[activeView as keyof typeof viewTitles] || viewTitles.overview;
 
   return (
-    <div className="flex-1 bg-gradient-to-br from-gray-50/50 to-white/80 min-h-screen">
-      <div className="sticky top-0 z-10 glass-effect border-b border-gray-200/50 px-8 py-6">
+    <div className="flex-1 bg-gradient-to-br from-gray-50/50 to-white/80 dark:from-gray-900/50 dark:to-black/80 min-h-screen transition-colors duration-300">
+      <div className="sticky top-0 z-10 glass-effect border-b border-gray-200/50 dark:border-gray-700/50 px-8 py-6">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-6">
-            <SidebarTrigger className="h-10 w-10 bg-white/80 hover:bg-white border border-gray-200/60 shadow-md hover:shadow-lg transition-all duration-200 rounded-xl" />
+            <SidebarTrigger className="h-10 w-10 bg-white/80 dark:bg-gray-800/80 hover:bg-white dark:hover:bg-gray-700 border border-gray-200/60 dark:border-gray-700/60 shadow-md hover:shadow-lg transition-all duration-200 rounded-xl" />
             <div>
               <div className="flex items-center gap-3 mb-1">
-                <h1 className="text-3xl font-bold text-gray-900">{currentView.title}</h1>
-                <Badge variant="secondary" className="bg-gradient-to-r from-indigo-500/10 to-purple-500/10 text-indigo-700 border-indigo-200/50 font-medium">
+                <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100">{currentView.title}</h1>
+                <Badge variant="secondary" className="bg-gradient-to-r from-indigo-500/10 to-purple-500/10 text-indigo-700 dark:text-indigo-300 border-indigo-200/50 dark:border-indigo-700/50 font-medium">
                   Pro
                 </Badge>
               </div>
-              <p className="text-gray-600 font-medium">{currentView.subtitle}</p>
+              <p className="text-gray-600 dark:text-gray-400 font-medium">{currentView.subtitle}</p>
             </div>
           </div>
           <div className="flex items-center gap-4">
+            <ThemeToggle />
             <div className="h-12 w-12 rounded-xl bg-gradient-to-r from-indigo-500 to-purple-600 shadow-lg flex items-center justify-center">
               <span className="text-white font-bold text-lg">JD</span>
             </div>
