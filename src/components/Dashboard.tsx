@@ -13,11 +13,9 @@ const Dashboard = ({ onLogout }: DashboardProps) => {
 
   return (
     <SidebarProvider>
-      <div className="min-h-screen flex w-full bg-gray-50">
+      <div className="min-h-screen flex w-full bg-gradient-to-br from-slate-50 via-white to-gray-100">
         <AppSidebar activeView={activeView} setActiveView={setActiveView} onLogout={onLogout} />
-        <main className="flex-1">
-          <DashboardContent activeView={activeView} />
-        </main>
+        <DashboardContent activeView={activeView} />
       </div>
     </SidebarProvider>
   );
