@@ -4,6 +4,7 @@ import { OverviewView } from './OverviewView';
 import { UploadView } from './UploadView';
 import { DocumentsView } from './DocumentsView';
 import { SettingsView } from './SettingsView';
+import { SampleValidatorView } from './SampleValidatorView';
 
 interface DashboardContentProps {
   activeView: string;
@@ -16,6 +17,8 @@ export function DashboardContent({ activeView }: DashboardContentProps) {
         return <OverviewView />;
       case 'upload':
         return <UploadView />;
+      case 'validator':
+        return <SampleValidatorView />;
       case 'documents':
         return <DocumentsView />;
       case 'settings':
@@ -29,7 +32,7 @@ export function DashboardContent({ activeView }: DashboardContentProps) {
     <div className="p-6">
       <div className="flex items-center gap-4 mb-6">
         <SidebarTrigger />
-        <h1 className="text-2xl font-bold capitalize">{activeView}</h1>
+        <h1 className="text-2xl font-bold capitalize">{activeView === 'validator' ? 'Sample Validator' : activeView}</h1>
       </div>
       {renderView()}
     </div>

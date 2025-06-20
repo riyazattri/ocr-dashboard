@@ -13,7 +13,7 @@ import {
   SidebarTrigger,
 } from "@/components/ui/sidebar";
 import { Button } from "@/components/ui/button";
-import { FileText, Upload, Table, BarChart3, Settings, LogOut, User } from 'lucide-react';
+import { FileText, Upload, Table, BarChart3, Settings, LogOut, User, Shield } from 'lucide-react';
 
 interface AppSidebarProps {
   activeView: string;
@@ -31,6 +31,11 @@ const menuItems = [
     title: "Upload Files",
     url: "upload",
     icon: Upload,
+  },
+  {
+    title: "Sample Validator",
+    url: "validator",
+    icon: Shield,
   },
   {
     title: "Documents",
